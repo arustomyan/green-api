@@ -1,1 +1,2 @@
-export  {Workspace} from "./Workspace/Workspace";
+export { Workspace } from "./Workspace/Workspace";
+export { ButtonSend } from "./ButtonSend/ButtonSend";
