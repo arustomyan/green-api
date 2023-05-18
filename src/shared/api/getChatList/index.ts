@@ -1,0 +1,1 @@
+export { getChatList } from "./getChatList";
