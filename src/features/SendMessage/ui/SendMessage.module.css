@@ -1,0 +1,22 @@
+.root {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  background-color: azure;
+}
+
+.form {
+  height: 100%;
+}
+
+.input {
+  resize: none;
+
+  width: 100%;
+  height: 100%;
+  padding: 10px 15px;
+
+  background-color: rgb(230 250 248);
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}

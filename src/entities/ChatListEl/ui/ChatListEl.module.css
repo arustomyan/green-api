@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.avatar {
+  overflow: hidden;
+
+  aspect-ratio: 1;
+  width: 50px;
+
+  background-color: azure;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 600;
+}
