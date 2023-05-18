@@ -9,14 +9,13 @@ export const useFetching = (
   const fetching = async (...args: any) => {
     try {
       setIsLoading(true);
-      console.log("false");
+
       await callback(...args);
     } catch (e: any) {
       const errorMessage = e.message;
       setError(errorMessage);
     } finally {
       setIsLoading(false);
-      console.log("true");
     }
   };
 

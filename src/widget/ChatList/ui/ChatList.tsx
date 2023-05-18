@@ -4,6 +4,8 @@ import { ChatListEl } from "entities/ChatListEl";
 import { useFetching } from "shared/hooks";
 import { getChatList } from "shared/api/getChatList";
 import { chatList } from "shared/api/getChatList/model/chatList";
+import { Button } from "shared/ui/Button/Button";
+import { getNotifications } from "shared/api/getNotifications";
 
 export const ChatList: FC = () => {
   const [chatList, setChatList] = useState<chatList>([]);
@@ -15,17 +17,33 @@ export const ChatList: FC = () => {
     });
   });
 
+  const [fetchNotifications, isLoadingNotifications, errorNotifications] =
+    useFetching(() => {
+      getNotifications().then((res) => {
+        console.log("уведомления: ", res);
+      });
+    });
+
   useEffect(() => {
     fetchChatList();
   }, []);
 
+  const handleGetNotifications = () => {
+    fetchNotifications();
+  };
+
   return (
-    <ul className={style.root}>
-      {isLoading ? (
-        <p className="">загружаем</p>
-      ) : (
-        chatList.map((chat) => <ChatListEl userName={chat.id} key={chat.id} />)
-      )}
-    </ul>
+    <div className={style.root}>
+      <ul className={style.list}>
+        {isLoading ? (
+          <p className="">загружаем</p>
+        ) : (
+          chatList.map((chat) => (
+            <ChatListEl userName={chat.id} key={chat.id} />
+          ))
+        )}
+      </ul>
+      <Button onClick={handleGetNotifications}>Проверить уведомления</Button>
+    </div>
   );
 };

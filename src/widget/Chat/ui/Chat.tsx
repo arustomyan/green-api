@@ -1,28 +1,42 @@
-import message from "../../../components/model/message";
 import { MessageList } from "features/MessageList";
 import { SendMessage } from "features/SendMessage";
 
 import style from "./Chat.module.css";
+import { chatHistory } from "shared/api/getChatHistory/model/chatHistory";
+import { useEffect, useState } from "react";
 
-const messageList: message[] = [
-  {
-    type: "incoming",
-    idMessage: "3ACBF68BEE9A23F7F3D9",
-    typeMessage: "textMessage",
-    textMessage: "Привет",
-  },
-  {
-    type: "outgoing",
-    idMessage: "3A5E5E228875FE877228",
-    typeMessage: "textMessage",
-    textMessage: "Привет",
-  },
-];
+import { getChatHistory } from "shared/api/getChatHistory";
+import { useFetching } from "shared/hooks";
+
+const chatIdSave = localStorage.getItem("chatId");
+const chatId: string = chatIdSave ? chatIdSave : "";
 
 export const Chat = () => {
+  const [chatHistory, setChatHistory] = useState<chatHistory>([]);
+
+  const [fetchChatHistory, isLoading, error] = useFetching(() => {
+    getChatHistory({ chatId }).then((res) => {
+      if (Array.isArray(res)) {
+        setChatHistory(res);
+      }
+    });
+  });
+
+  const handleGetChatList = () => {
+    fetchChatHistory();
+  };
+
+  useEffect(() => {
+    fetchChatHistory();
+  }, []);
+
   return (
     <div className={style.chat}>
-      <MessageList messageList={messageList} />
+      <MessageList
+        messageList={chatHistory}
+        handleGetChatList={handleGetChatList}
+      />
+
       <SendMessage />
     </div>
   );
