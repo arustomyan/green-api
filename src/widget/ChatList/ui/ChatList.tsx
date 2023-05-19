@@ -1,16 +1,19 @@
 import { FC, useEffect, useState } from "react";
 import style from "./ChatList.module.css";
 import { ChatListEl } from "entities/ChatListEl";
-import { useFetching } from "shared/hooks";
+import { useAppSelector, useFetching } from "shared/hooks";
 import { getChatList } from "shared/api/getChatList";
 import { chatList } from "shared/api/getChatList/model/chatList";
 import { Button } from "shared/ui/Button/Button";
 import { getNotifications } from "shared/api/getNotifications";
+import { selectSessionData } from "entities/Session";
 
 export const ChatList: FC = () => {
   const [chatList, setChatList] = useState<chatList>([]);
+  const { idInstance, ApiTokenInstance } = useAppSelector(selectSessionData);
+
   const [fetchChatList, isLoading] = useFetching(() => {
-    getChatList().then((res) => {
+    getChatList({ idInstance, ApiTokenInstance }).then((res) => {
       if (Array.isArray(res)) {
         setChatList(res);
       }
