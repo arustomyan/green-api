@@ -34,8 +34,6 @@ export const ChatList: FC = () => {
     fetchNotifications();
   };
 
-  console.log(chatList);
-
   return (
     <div className={style.root}>
       <ul className={style.list}>

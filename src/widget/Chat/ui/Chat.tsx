@@ -16,7 +16,7 @@ export const Chat = () => {
   const { idInstance, ApiTokenInstance } = useAppSelector(selectSessionData);
   const chatId = useAppSelector(selectIsChat);
 
-  const [fetchChatHistory] = useFetching(() => {
+  const [fetchChatHistory, isLoading] = useFetching(() => {
     getChatHistory({ chatId, idInstance, ApiTokenInstance }).then((res) => {
       console.log(res);
       if (Array.isArray(res)) {
@@ -35,7 +35,9 @@ export const Chat = () => {
 
   return (
     <div className={style.chat}>
-      {chatId === "" ? (
+      {isLoading ? (
+        <p className="">загрузка</p>
+      ) : chatId === "" ? (
         <EmptyChat />
       ) : (
         <>
