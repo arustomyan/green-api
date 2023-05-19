@@ -1,7 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "app/appStore";
 import { sessionApi } from "entities/Session/api/sessionApi";
-import { recordAuthData } from "entities/Session/model/slice";
+import {
+  deleteErrorAuth,
+  recordAuthData,
+  setErrorAuth,
+} from "entities/Session/model/slice";
 import { formData } from "./type";
 
 export const signInThunk = createAsyncThunk<
@@ -14,9 +18,14 @@ export const signInThunk = createAsyncThunk<
     console.log(res);
 
     if (res.stateInstance === "authorized") {
+      dispatch(deleteErrorAuth());
       dispatch(recordAuthData(body));
+    } else {
+      dispatch(setErrorAuth());
     }
   } catch (error) {
+    dispatch(setErrorAuth());
+
     throw new Error("Unknown error");
   }
 });

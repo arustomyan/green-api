@@ -3,4 +3,8 @@ export {
   selectSessionData,
   clearSessionData,
   sessionSlice,
+  recordAuthData,
+  deleteErrorAuth,
+  setErrorAuth,
+  selectIsAuthError,
 } from "./model/slice";
