@@ -58,7 +58,7 @@ export const SignInForm = () => {
         err={error.ApiTokenInstance}
         onFocus={handleFocus}
       />
-      <Button onClick={handleSubmit} className={style.button}>
+      <Button onClick={handleSubmit} type="submit" className={style.button}>
         авторизоваться
       </Button>
       {errorAuth && <p className={style.errorAuth}>Ошибка авторизации</p>}
