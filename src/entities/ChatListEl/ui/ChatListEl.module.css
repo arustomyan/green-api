@@ -1,7 +1,23 @@
 .root {
+  cursor: pointer;
+
   display: flex;
   gap: 10px;
   align-items: center;
+
+  padding: 8px;
+
+  transition: background-color 0.2s ease;
+}
+
+.root:hover {
+  background-color: #ece8e872;
+  border-radius: 8px;
+}
+
+.root:active {
+  background-color: #6ce98b8f;
+  border-radius: 8px;
 }
 
 .avatar {

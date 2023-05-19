@@ -1,13 +1,16 @@
 type getChatHistoryParams = {
   chatId: string;
+  idInstance: string;
+  ApiTokenInstance: string;
 };
 
 const BASE_URL = "https://api.green-api.com";
 
-export const getChatHistory = async ({ chatId }: getChatHistoryParams) => {
-  const idInstance = localStorage.getItem("idInstance");
-  const ApiTokenInstance = localStorage.getItem("ApiTokenInstance");
-
+export const getChatHistory = async ({
+  chatId,
+  idInstance,
+  ApiTokenInstance,
+}: getChatHistoryParams) => {
   return fetch(
     `${BASE_URL}/waInstance${idInstance}/getChatHistory/${ApiTokenInstance}`,
     {

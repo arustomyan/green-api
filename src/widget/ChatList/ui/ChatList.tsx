@@ -31,6 +31,8 @@ export const ChatList: FC = () => {
     fetchNotifications();
   };
 
+  console.log(chatList);
+
   return (
     <div className={style.root}>
       <ul className={style.list}>
@@ -38,7 +40,7 @@ export const ChatList: FC = () => {
           <p className="">загружаем</p>
         ) : (
           chatList.map((chat) => (
-            <ChatListEl userName={chat.id} key={chat.id} />
+            <ChatListEl userName={chat.id} key={chat.id} id={chat.id} />
           ))
         )}
       </ul>

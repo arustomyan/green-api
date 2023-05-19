@@ -1,1 +1,6 @@
-export { selectIsAuth, clearSessionData, sessionSlice } from "./model/slice";
+export {
+  selectIsAuth,
+  selectSessionData,
+  clearSessionData,
+  sessionSlice,
+} from "./model/slice";

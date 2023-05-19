@@ -4,10 +4,11 @@ import { sendTextMessage } from "shared/api/sendTextMessage";
 import { useFetching } from "shared/hooks";
 import style from "./SendMessage.module.css";
 
-const chatIdSave = localStorage.getItem("chatId");
-const chatId: string = chatIdSave ? chatIdSave : "";
+interface SendMessageProps {
+  chatId: string;
+}
 
-export const SendMessage: FC = () => {
+export const SendMessage: FC<SendMessageProps> = ({ chatId }) => {
   const [input, setInput] = useState<string>("");
 
   const [sendMessage, isSend] = useFetching(() => {

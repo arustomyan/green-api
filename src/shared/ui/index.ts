@@ -1,4 +1,5 @@
 export { Workspace } from "./Workspace/Workspace";
+export { EmptyChat } from "./EmptyChat/EmptyChat";
 export { ButtonSend } from "./ButtonSend/ButtonSend";
 export { Input } from "./Input/Input";
 export { AuthLayout } from "./AuthLayout/AuthLayout";
