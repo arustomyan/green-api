@@ -29,7 +29,9 @@ export const Chat = () => {
   };
 
   useEffect(() => {
-    fetchChatHistory();
+    if (chatId !== "") {
+      fetchChatHistory();
+    }
   }, [chatId]);
 
   return (
