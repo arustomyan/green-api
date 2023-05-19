@@ -8,7 +8,6 @@ export const Header = () => {
 
   const handleExit = () => {
     dispatch(clearSessionData());
-    console.log("scdnjcn");
   };
   return (
     <header className={style.header}>

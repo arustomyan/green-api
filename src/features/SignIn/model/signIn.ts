@@ -15,7 +15,6 @@ export const signInThunk = createAsyncThunk<
 >("session/recordAuthDat", async (body: formData, { dispatch }) => {
   try {
     const res = await sessionApi(body);
-    console.log(res);
 
     if (res.stateInstance === "authorized") {
       dispatch(deleteErrorAuth());

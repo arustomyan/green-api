@@ -18,7 +18,6 @@ export const Chat = () => {
 
   const [fetchChatHistory, isLoading] = useFetching(() => {
     getChatHistory({ chatId, idInstance, ApiTokenInstance }).then((res) => {
-      console.log(res);
       if (Array.isArray(res)) {
         setChatHistory(res);
       }

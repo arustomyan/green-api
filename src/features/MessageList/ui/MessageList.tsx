@@ -15,18 +15,14 @@ export const MessageList: FC<MessageListProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  console.log(ref);
-
   useEffect(() => {
     if (ref !== null) {
-      console.log("kmkmkm");
       ref.current?.scrollBy(0, 999999);
     }
   }, [messageList]);
   return (
     <div className={style.chat} ref={ref}>
       {messageList
-        .reverse()
         .map((message) => (
           <Message
             isSender={message.type === "outgoing"}
