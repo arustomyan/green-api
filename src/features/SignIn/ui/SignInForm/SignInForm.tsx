@@ -32,7 +32,7 @@ export const SignInForm = () => {
       setError((prev) => ({ ...prev, idInstance: true }));
     }
 
-    if (formData.ApiTokenInstance == "" && formData.idInstance == "") {
+    if (formData.ApiTokenInstance !== "" && formData.idInstance !== "") {
       dispatch(signInThunk(formData));
     }
   };
