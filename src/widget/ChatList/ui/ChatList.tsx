@@ -21,7 +21,7 @@ export const ChatList: FC = () => {
   });
 
   const [fetchNotifications] = useFetching(() => {
-    getNotifications().then((res) => {
+    getNotifications({ idInstance, ApiTokenInstance }).then((res) => {
       console.log("уведомления: ", res);
     });
   });

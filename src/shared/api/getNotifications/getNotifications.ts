@@ -1,9 +1,14 @@
-const BASE_URL = "https://api.green-api.com";
+import { BASE_URL } from "../BASE_URL";
 
-export const getNotifications = async () => {
-  const idInstance = localStorage.getItem("idInstance");
-  const ApiTokenInstance = localStorage.getItem("ApiTokenInstance");
+type getNotificationsParams = {
+  idInstance: string;
+  ApiTokenInstance: string;
+};
 
+export const getNotifications = async ({
+  idInstance,
+  ApiTokenInstance,
+}: getNotificationsParams) => {
   return fetch(
     `${BASE_URL}/waInstance${idInstance}/receiveNotification/${ApiTokenInstance}`
   )
