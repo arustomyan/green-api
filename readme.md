@@ -1,6 +1,6 @@
 # Тестовое задание для компании GREEN API
 
-[Открыть приложение](https://green-api-xi.vercel.app/)
+## Live demo: [Перейти в приложение](https://green-api-xi.vercel.app/)
 
 ## Локальная установка:
 
