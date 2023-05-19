@@ -42,7 +42,9 @@ export const ChatList: FC = () => {
           ))
         )}
       </ul>
-      <Button onClick={handleGetNotifications}>Проверить уведомления</Button>
+      <Button onClick={handleGetNotifications} className={style.button}>
+        Проверить уведомления
+      </Button>
     </div>
   );
 };

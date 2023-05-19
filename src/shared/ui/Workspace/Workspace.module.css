@@ -1,7 +1,9 @@
 .workspace {
-  height: calc(100vh - 80px);
-  background-color: aliceblue;
-
+  overflow: clip;
   display: flex;
   gap: 0;
+
+  height: calc(100vh - 80px);
+
+  background-color: aliceblue;
 }

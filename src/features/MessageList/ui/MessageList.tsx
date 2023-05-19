@@ -27,7 +27,9 @@ export const MessageList: FC<MessageListProps> = ({
         ))
         .reverse()}
 
-      <Button onClick={handleGetChatList}>обновить чат</Button>
+      <Button onClick={handleGetChatList} className={style.button}>
+        обновить чат
+      </Button>
     </div>
   );
 };

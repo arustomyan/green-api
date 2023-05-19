@@ -1,0 +1,47 @@
+.root {
+  position: relative;
+  z-index: 10000;
+
+  display: flex;
+  justify-content: space-between;
+
+  width: 800px;
+  min-height: 300px;
+  margin: 150px auto 20px;
+
+  border-radius: 16px;
+  box-shadow: 0 6px 5px rgb(0 0 0 / 24%), 0 9px 18px rgb(0 0 0 / 18%);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50%;
+  height: auto;
+
+  background-color: #1dd845;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.logo {
+  font-family: Rubik, sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+
+.formAuth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 50%;
+  padding: 20px;
+
+  background-color: #fff;
+  border-radius: 16px;
+}

@@ -1,11 +1,16 @@
-import { ChatPage } from "../pages/ChatPage/ui/ChatPage";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { AuthRouter } from "./appRouter";
+import { persistor, store } from "./appStore";
 
-function App() {
+export const App = () => {
   return (
     <>
-      <ChatPage />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <AuthRouter />
+        </PersistGate>
+      </Provider>
     </>
   );
-}
-
-export default App;
+};

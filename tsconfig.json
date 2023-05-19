@@ -20,11 +20,12 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "src",
     "paths": {
-      "shared/*": ["shared/*"],
+      "app/*": ["app/*"],
+      "pages/*": ["pages/*"],
+      "widget/*": ["widget/*"],
       "features/*": ["features/*"],
       "entities/*": ["entities/*"],
-      "widget/*": ["widget/*"],
-      "app/*": ["app/*"]
+      "shared/*": ["shared/*"]
     }
   },
   "include": ["src"],
