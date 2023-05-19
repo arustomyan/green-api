@@ -15,6 +15,8 @@
   border-radius: 8px;
 }
 
+.rootActive,
+.rootActive:hover,
 .root:active {
   background-color: #6ce98b8f;
   border-radius: 8px;

@@ -1,8 +1,9 @@
 import { FC, KeyboardEventHandler, useState } from "react";
 import { ButtonSend } from "shared/ui";
 import { sendTextMessage } from "shared/api/sendTextMessage";
-import { useFetching } from "shared/hooks";
+import { useAppSelector, useFetching } from "shared/hooks";
 import style from "./SendMessage.module.css";
+import { selectSessionData } from "entities/Session";
 
 interface SendMessageProps {
   chatId: string;
@@ -10,9 +11,10 @@ interface SendMessageProps {
 
 export const SendMessage: FC<SendMessageProps> = ({ chatId }) => {
   const [input, setInput] = useState<string>("");
+  const { idInstance, ApiTokenInstance } = useAppSelector(selectSessionData);
 
   const [sendMessage, isSend] = useFetching(() => {
-    sendTextMessage({ message: input, chatId });
+    sendTextMessage({ message: input, chatId, idInstance, ApiTokenInstance });
   });
 
   const handleSendMessage = () => {

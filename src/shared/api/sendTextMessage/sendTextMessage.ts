@@ -1,17 +1,18 @@
+import { BASE_URL } from "../BASE_URL";
+
 type sendTextMessageParams = {
   message: string;
   chatId: string;
+  idInstance: string;
+  ApiTokenInstance: string;
 };
-
-const BASE_URL = "https://api.green-api.com";
 
 export const sendTextMessage = async ({
   message,
   chatId,
+  idInstance,
+  ApiTokenInstance,
 }: sendTextMessageParams) => {
-  const idInstance = localStorage.getItem("idInstance");
-  const ApiTokenInstance = localStorage.getItem("ApiTokenInstance");
-
   fetch(`${BASE_URL}/waInstance${idInstance}/sendMessage/${ApiTokenInstance}`, {
     method: "POST",
     headers: {
