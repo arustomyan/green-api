@@ -9,7 +9,7 @@ import { getNotifications } from "shared/api/getNotifications";
 
 export const ChatList: FC = () => {
   const [chatList, setChatList] = useState<chatList>([]);
-  const [fetchChatList, isLoading, error] = useFetching(() => {
+  const [fetchChatList, isLoading] = useFetching(() => {
     getChatList().then((res) => {
       if (Array.isArray(res)) {
         setChatList(res);
@@ -17,12 +17,11 @@ export const ChatList: FC = () => {
     });
   });
 
-  const [fetchNotifications, isLoadingNotifications, errorNotifications] =
-    useFetching(() => {
-      getNotifications().then((res) => {
-        console.log("уведомления: ", res);
-      });
+  const [fetchNotifications] = useFetching(() => {
+    getNotifications().then((res) => {
+      console.log("уведомления: ", res);
     });
+  });
 
   useEffect(() => {
     fetchChatList();

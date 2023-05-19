@@ -14,7 +14,7 @@ const chatId: string = chatIdSave ? chatIdSave : "";
 export const Chat = () => {
   const [chatHistory, setChatHistory] = useState<chatHistory>([]);
 
-  const [fetchChatHistory, isLoading, error] = useFetching(() => {
+  const [fetchChatHistory] = useFetching(() => {
     getChatHistory({ chatId }).then((res) => {
       if (Array.isArray(res)) {
         setChatHistory(res);
