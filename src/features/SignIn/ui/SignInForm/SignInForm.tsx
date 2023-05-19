@@ -30,9 +30,11 @@ export const SignInForm = () => {
     }
     if (formData.idInstance == "") {
       setError((prev) => ({ ...prev, idInstance: true }));
-      return;
     }
-    dispatch(signInThunk(formData));
+
+    if (formData.ApiTokenInstance == "" && formData.idInstance == "") {
+      dispatch(signInThunk(formData));
+    }
   };
 
   const handleFocus: React.FocusEventHandler<HTMLInputElement> = (e) => {
